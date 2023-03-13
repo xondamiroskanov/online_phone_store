@@ -201,11 +201,11 @@ class MainAccessoriesModelList {
   }
 
   void isFavoriteId(String favoriteId) {
-    final favoriteIdindex = _favorites
-        .indexWhere((element) => element.id == favoriteId);
+    final favoriteIdindex =
+        _favorites.indexWhere((element) => element.id == favoriteId);
     if (favoriteIdindex < 0) {
-       _favorites.add(
-         mainAccessoriesModelList
+      _favorites.add(
+        mainAccessoriesModelList
             .firstWhere((element) => element.id == favoriteId),
       );
     } else {
@@ -213,7 +213,11 @@ class MainAccessoriesModelList {
     }
   }
 
-  void newAccAdd(MainAccessoriesModel newAcc){
+  void newAccAdd(MainAccessoriesModel newAcc) {
     _mainAccessoriesModelList.add(newAcc);
+  }
+
+  void deleteIdItem(String deleteid) {
+    _mainAccessoriesModelList.removeWhere((element) => element.id == deleteid);
   }
 }

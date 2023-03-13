@@ -41,6 +41,11 @@ class _MyAppState extends State<MyApp> {
       mainAccessoriesModelList.newAccAdd(newAcc);
     });
   }
+void deleteIdItem(String deleteid){
+    setState(() {
+      mainAccessoriesModelList.deleteIdItem(deleteid);
+    });
+}
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +72,9 @@ class _MyAppState extends State<MyApp> {
         "/carouselAccessoiresPage": (context) => CarouselAccessoriesPage(),
         "/allAccessoriespage": (context) => AllAccessoriesPage(
             mainAccessoriesModelList:
-                mainAccessoriesModelList.mainAccessoriesModelList),
+                mainAccessoriesModelList.mainAccessoriesModelList,
+            deleteIdItem:deleteIdItem
+        ),
         "/newAddAccessoriesPage": (context) => NewAddAccessoriesPage(
               accessoriesCategory: accessoriesCategory.accessoriesList,
             newAccAdd:newAccAdd

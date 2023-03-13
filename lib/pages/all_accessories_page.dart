@@ -5,8 +5,12 @@ import '../models/accessories_main_model.dart';
 
 class AllAccessoriesPage extends StatefulWidget {
   List<MainAccessoriesModel> mainAccessoriesModelList;
+  final Function deleteIdItem;
 
-  AllAccessoriesPage({Key? key, required this.mainAccessoriesModelList})
+  AllAccessoriesPage(
+      {Key? key,
+      required this.mainAccessoriesModelList,
+      required this.deleteIdItem})
       : super(key: key);
 
   @override
@@ -54,7 +58,14 @@ class _AllAccessoriesPageState extends State<AllAccessoriesPage> {
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
               ),
               subtitle: Text(widget.mainAccessoriesModelList[index].price),
-              trailing: IconButton(onPressed: () {}, icon: Icon(Icons.delete)),
+              trailing: IconButton(
+                  onPressed: () {
+
+                      widget.deleteIdItem(
+                          widget.mainAccessoriesModelList[index].id);
+
+                  },
+                  icon: Icon(Icons.delete)),
             );
           }),
       drawer: DrawerWidget(),
